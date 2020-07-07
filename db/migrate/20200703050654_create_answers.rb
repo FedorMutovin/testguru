@@ -1,14 +1,10 @@
 class CreateAnswers < ActiveRecord::Migration[5.2]
-  def up
+  def change
     create_table :answers do |t|
-      t.references(:question)
+      t.integer :question_id
       t.string :body
 
       t.timestamps
     end
-  end
-
-  def down
-    drop_table :answers
   end
 end

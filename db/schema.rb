@@ -10,27 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_06_061128) do
+ActiveRecord::Schema.define(version: 2020_07_03_061040) do
 
   create_table "answers", force: :cascade do |t|
-    t.integer "question_id"
-    t.string "body"
+    t.integer "question_id", null: false
+    t.string "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["question_id"], name: "index_answers_on_question_id"
+    t.boolean "correct", default: false
   end
 
   create_table "categories", force: :cascade do |t|
+    t.integer "level_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "questions", force: :cascade do |t|
     t.string "body", null: false
+    t.integer "level_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "tests_id"
-    t.index ["tests_id"], name: "index_questions_on_tests_id"
   end
 
   create_table "tests", force: :cascade do |t|
@@ -41,11 +41,10 @@ ActiveRecord::Schema.define(version: 2020_07_06_061128) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer "tests_id"
-    t.string "name"
+    t.integer "test_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tests_id"], name: "index_users_on_tests_id"
+    t.string "name", null: false
   end
 
 end
