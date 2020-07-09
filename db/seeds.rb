@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+categories = Category.create([{ title: 'Ruby' }, { title: 'Ruby on Rails' }])
+tests = Test.create([{ title: 'Основы Руби',
+                       category_id: categories.first.id },
+                     { title: 'Rails-модели', level: 2,
+                       category_id: categories.last.id }])
+questions = Question.create([{ body: 'Как вычисляется квадратный корень',
+                               test_id: tests.first.id },
+                             { body: 'Какая команда генерирует модель?',
+                               test_id: tests.last.id }])
+Answer.create([{ body: 'Math.sqrt', correct: true,
+                 question_id: questions.first },
+               { body: 'bin/rails g migration', correct: false,
+                 question_id: questions.last }])
+User.create(name: :Murray)
