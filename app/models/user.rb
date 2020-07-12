@@ -1,5 +1,5 @@
 class User < ApplicationRecord
   def show_all_tests(level)
-    Test.where(level: level, user_id: id)
+    TestsUser.where(test_id: Test.find_by(level: level).id, user_id: id)
   end
 end
