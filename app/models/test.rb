@@ -1,6 +1,6 @@
 class Test < ApplicationRecord
-  belongs_to :category
   def self.sort_descending(category_title)
-    Test.joins(:category).where(categories: { title: category_title }).order('tests.title DESC').pluck('tests.title')
+    category_id = Category.find_by(title: category_title).id
+    order(title: :desc).where(category_id: category_id).pluck(:title)
   end
 end
