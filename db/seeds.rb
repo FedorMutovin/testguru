@@ -10,19 +10,20 @@ Category.destroy_all
 Test.destroy_all
 Question.destroy_all
 Answer.destroy_all
+TestsUser.destroy_all
 
-User.create([{name: 'Bill Murray'}, { name: 'Ghost Buster'}])
-Category.create([{ title: 'Ruby' }, { title: 'Ruby on Rails' }])
-Test.create([{ title: 'Основы Руби', author: User.last,
-               category: Category.first },
-             { title: 'Rails-модели', level: 2, author: User.last,
-               category: Category.last }])
-Question.create([{ body: 'Как вычисляется квадратный корень',
-                   test: Test.first },
-                 { body: 'Какая команда генерирует модель?',
-                   test: Test.last }])
+user = User.create([{ name: 'Bill Murray' }, { name: 'Ghost Buster' }])
+category = Category.create([{ title: 'Ruby' }, { title: 'Ruby on Rails' }])
+test = Test.create([{ title: 'Основы Руби', author: user.last,
+                      category: category.first },
+                    { title: 'Rails-модели', level: 2, author: user.last,
+                      category: category.last }])
+question = Question.create([{ body: 'Как вычисляется квадратный корень',
+                              test: test.first },
+                            { body: 'Какая команда генерирует модель?',
+                              test: test.last }])
 Answer.create([{ body: 'Math.sqrt', correct: true,
-                 question: Question.first },
+                 question: question.first },
                { body: 'bin/rails g migration', correct: false,
-                 question: Question.last }])
-TestsUser.create(test_id: Test.last.id, user_id: User.last.id)
+                 question: question.last }])
+TestsUser.create(test_id: test.last.id, user_id: user.last.id)
