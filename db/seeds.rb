@@ -16,14 +16,20 @@ users = User.create([{ name: 'Bill Murray' }, { name: 'Ghost Buster' }])
 categories = Category.create([{ title: 'Ruby' }, { title: 'Ruby on Rails' }])
 tests = Test.create([{ title: 'Основы Руби', author: users.last,
                        category: categories.first },
-                     { title: 'Rails-модели', level: 2, author: users.last,
+                     { title: 'Rails-модели', level: 6, author: users.last,
                        category: categories.last }])
-questions = Question.create([{ body: 'Как вычисляется квадратный корень',
+questions = Question.create([{ body: 'Как вычисляется квадратный корень?',
                                test: tests.first },
                              { body: 'Какая команда генерирует модель?',
                                test: tests.last }])
 Answer.create([{ body: 'Math.sqrt', correct: true,
                  question: questions.first },
                { body: 'bin/rails g migration', correct: false,
+                 question: questions.last },
+               { body: 'bin/rails g modulation', correct: false,
+                 question: questions.last },
+               { body: 'bin/rails g mutation', correct: false,
+                 question: questions.last },
+               { body: 'bin/rails g model', correct: true,
                  question: questions.last }])
-TestsUser.create(test_id: tests.last.id, users_id: users.last.id)
+TestsUser.create(test: tests.last, user: users.last)
