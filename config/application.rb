@@ -11,6 +11,7 @@ module TestGuru
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
+    I18n.config.available_locales = :ru
     config.i18n.default_locale = :ru
     config.time_zone = 'Irkutsk'
 

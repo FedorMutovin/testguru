@@ -5,24 +5,25 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.delete_all
-Category.delete_all
-Test.delete_all
-Question.delete_all
-Answer.delete_all
+User.destroy_all
+Category.destroy_all
+Test.destroy_all
+Question.destroy_all
+Answer.destroy_all
+TestsUser.destroy_all
 
-User.create(name: 'Bill Murray')
+users = User.create([{ name: 'Bill Murray' }, { name: 'Ghost Buster' }])
 categories = Category.create([{ title: 'Ruby' }, { title: 'Ruby on Rails' }])
-tests = Test.create([{ title: 'Основы Руби',
-                       category_id: categories.first.id },
-                     { title: 'Rails-модели', level: 2,
-                       category_id: categories.last.id }])
+tests = Test.create([{ title: 'Основы Руби', author: users.last,
+                       category: categories.first },
+                     { title: 'Rails-модели', level: 2, author: users.last,
+                       category: categories.last }])
 questions = Question.create([{ body: 'Как вычисляется квадратный корень',
-                               test_id: tests.first.id },
+                               test: tests.first },
                              { body: 'Какая команда генерирует модель?',
-                               test_id: tests.last.id }])
+                               test: tests.last }])
 Answer.create([{ body: 'Math.sqrt', correct: true,
-                 question_id: questions.first },
+                 question: questions.first },
                { body: 'bin/rails g migration', correct: false,
-                 question_id: questions.last }])
-TestsUser.create(test_id: Test.last.id, user_id: User.last.id)
+                 question: questions.last }])
+TestsUser.create(test_id: tests.last.id, users_id: users.last.id)
