@@ -1,0 +1,10 @@
+<h1>Редактирование вопросов</h1>
+
+<ul>
+  <% @questions.each do |question| %>
+    <li>
+      <%= question.id %> => <%= question.body %>
+    </li>
+    <%= link_to  "Удалить", test_questions_path(question), method: :delete %>
+  <% end %>
+</ul>
