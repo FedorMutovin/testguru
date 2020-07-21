@@ -1,6 +1,6 @@
 <h1>Редактирование вопросов</h1>
 <p>
-  <% question = Question.find(params[:id]) %>
+  <% question = @question %>
   <%= question.body %>
   <%= link_to  "Удалить", question_path(question), method: :delete %>
 </p>
