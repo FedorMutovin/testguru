@@ -1,6 +1,6 @@
 <h1>Создание нового вопроса</h1>
 
-<form action="<%= test_questions_path %>" method="post">
+<form action="/tests/<%= @test.id %>/questions" method="post">
   <input name="authenticity_token" value="<%= form_authenticity_token %>>" type="hidden">
   <p>
     <label for="question-body">Название вопроса</label>
