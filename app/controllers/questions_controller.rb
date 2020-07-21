@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    render inline: @test.questions
+    render plain: @test.questions
   end
 
   def destroy
