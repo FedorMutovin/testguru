@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :find_test, only: %i[index new create]
+  before_action :find_question, only: %i[edit destroy show]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
@@ -8,7 +9,7 @@ class QuestionsController < ApplicationController
   def edit; end
 
   def show
-    render plain: Question.find(params[:id]).body
+    render plain: @question.body
   end
 
   def index
@@ -16,7 +17,8 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    Question.find(params[:id]).destroy
+    @question.destroy
+    render plain: 'Вопрос удален'
   end
 
   def create
@@ -28,7 +30,11 @@ class QuestionsController < ApplicationController
   private
 
   def find_test
-    @test = Question.find(params[:test_id]).test
+    @test = Test.find(params[:test_id])
+  end
+
+  def find_question
+    @question = Question.find(params[:id])
   end
 
   def question_params
