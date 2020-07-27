@@ -1,6 +1,2 @@
-<h1>Редактирование вопросов</h1>
-<p>
-  <% question = @question %>
-  <%= question.body %>
-  <%= link_to  "Удалить", question_path(question), method: :delete %>
-</p>
+<%= question_header(:edit) %>
+<%= render 'form', resource: @question %>
