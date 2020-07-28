@@ -12,7 +12,8 @@ Question.destroy_all
 Answer.destroy_all
 TestsUser.destroy_all
 
-users = User.create([{ name: 'Bill Murray' }, { name: 'Ghost Buster' }])
+users = User.create([{ name: 'Bill Murray', email: 'b@m.ru' },
+                     { name: 'Ghost Buster', email: 'g@b.ru' }])
 categories = Category.create([{ title: 'Ruby' }, { title: 'Ruby on Rails' }])
 tests = Test.create([{ title: 'Основы Руби', author: users.last,
                        category: categories.first },
