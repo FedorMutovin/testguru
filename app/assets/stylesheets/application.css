@@ -46,6 +46,15 @@ footer {
     color: #EFEFEF;
 }
 
+a {
+    text-decoration: none;
+    color:black
+}
+
+a:hover {
+    color: darksalmon;
+}
+
 footer a {
     text-decoration: none;
     color: #EFEFEF;
