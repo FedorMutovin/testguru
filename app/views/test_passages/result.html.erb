@@ -1,0 +1,19 @@
+<h1>Тест <%= @test_passage.test.title %> завершен</h1>
+<p>
+  Количество правильных ответов: <%= @test_passage.correct_questions %>
+  из <%= correct_answers %>
+</p>
+<% success_rate_color = successful? ? "color: green" : "color: red" %>
+<p style="<%= success_rate_color %>">
+  Процент успеха: <%= "#{success_rate.round}%" %>
+</p>
+<% if successful? %>
+  <p style="<%= success_rate_color %>">
+    Тест пройден
+  </p>
+<% else %>
+  <p style="<%= success_rate_color %>">
+    Тест не пройден
+  </p>
+<% end %>
+<%= link_to  "Вернуться к тестам", tests_path, method: :get %>
