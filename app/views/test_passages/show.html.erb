@@ -1,8 +1,5 @@
 <h1>Прохождение теста <%= @test_passage.test.title %></h1>
-<p>Номер текущего вопроса: <%= @test_passage.current_question.id%></p>
-<p>Всего вопросов: <%= @test_passage.test.questions.count %></p>
-
-
+<p>Вопрос: <%= "#{current_question_index} из #{@test_passage.test.questions.count} "%></p>
 <b>
   <%= @test_passage.current_question.body %>
 </b>
@@ -15,6 +12,5 @@
       <%= b.label %>
     </p>
     <% end %>
-
   <p><%= form.submit 'Следующий' %></p>
 <% end %>
