@@ -1,18 +1,18 @@
 <h1>Тест <%= @test_passage.test.title %> завершен</h1>
 <p>
   Количество правильных ответов: <%= @test_passage.correct_questions %>
-  из <%= correct_answers %>
+  из <%= @test_passage.test.questions.count %>
 </p>
-<% success_rate_color = successful? ? "color: green" : "color: red" %>
-<p style="<%= success_rate_color %>">
-  Процент успеха: <%= "#{success_rate.round}%" %>
+<% success_rate_color = @test_passage.successful? ? "success" : "fail" %>
+<p class="<%= success_rate_color %>">
+  Процент успеха: <%= "#{@test_passage.success_rate.round}%" %>
 </p>
-<% if successful? %>
-  <p style="<%= success_rate_color %>">
+<% if @test_passage.successful? %>
+  <p class="<%= success_rate_color %>">
     Тест пройден
   </p>
 <% else %>
-  <p style="<%= success_rate_color %>">
+  <p class="<%= success_rate_color %>">
     Тест не пройден
   </p>
 <% end %>
