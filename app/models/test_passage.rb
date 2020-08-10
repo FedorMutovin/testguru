@@ -23,6 +23,10 @@ class TestPassage < ApplicationRecord
     success_rate >= 85
   end
 
+  def current_question_index
+    test.questions.order(:id).index(current_question) + 1
+  end
+
   private
 
   def before_validation_set_first_question

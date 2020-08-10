@@ -1,5 +1,5 @@
 <h1>Прохождение теста <%= @test_passage.test.title %></h1>
-<p>Вопрос: <%= "#{current_question_index} из #{@test_passage.test.questions.count} "%></p>
+<p>Вопрос: <%= "#{@test_passage.current_question_index} из #{@test_passage.test.questions.count} "%></p>
 <b>
   <%= @test_passage.current_question.body %>
 </b>
