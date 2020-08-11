@@ -3,7 +3,6 @@
   Количество правильных ответов: <%= @test_passage.correct_questions %>
   из <%= @test_passage.test.questions.count %>
 </p>
-<% success_rate_color = @test_passage.successful? ? "success" : "fail" %>
 <p class="<%= success_rate_color %>">
   Процент успеха: <%= "#{@test_passage.success_rate.round}%" %>
 </p>
