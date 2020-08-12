@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate_user!
-    cookies[:request_path] = request.path
+    cookies[:request_path] = request.path unless logged_in?
     redirect_to login_path, alert: 'Для входа на портал пожалуйста авторизуйтесь' unless current_user
   end
 
