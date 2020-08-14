@@ -1,19 +1,16 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user,
-                :logged_in?
+  protect_from_forgery with: :exception
 
-  private
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def authenticate_user!
-    cookies[:request_path] = request.path unless logged_in?
-    redirect_to login_path, alert: 'Для входа на портал пожалуйста авторизуйтесь' unless current_user
+  def after_sign_in_path_for(current_user)
+    flash[:notice] = "Привет, #{current_user.first_name} #{current_user.last_name}"
+    current_user.admin? ? admin_tests_path : tests_path
   end
 
-  def current_user
-    @current_user ||= User.find_by id: session[:user_id] if session[:user_id]
-  end
+  protected
 
-  def logged_in?
-    current_user.present?
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name])
   end
 end
