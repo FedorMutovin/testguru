@@ -12,6 +12,6 @@ class User < ApplicationRecord
   end
 
   def admin?
-    type.eql?('Admin')
+    is_a?(Admin)
   end
 end
