@@ -3,9 +3,9 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def after_sign_in_path_for(current_user)
-    flash[:notice] = "Привет, #{current_user.first_name} #{current_user.last_name}"
-    current_user.admin? ? admin_tests_path : tests_path
+  def after_sign_in_path_for(user)
+    flash[:notice] = "Привет, #{user.first_name} #{user.last_name}"
+    user.admin? ? admin_tests_path : tests_path
   end
 
   protected
