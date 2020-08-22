@@ -17,8 +17,10 @@ ru:
   shared:
     header:
       logout: "Выйти"
+      log_in: "Войти"
       sign_up: "Зарегистрироваться"
-      welcome: "Добро пожаловать %{email} "
+      welcome: "Добро пожаловать, %{email} "
+      admin_panel: "Панель Администратора"
     errors:
       header:
         few: "Обнаружено %{count} ошибки"
@@ -59,7 +61,8 @@ ru:
     admin_header:
       logout: "Выйти"
       sign_up: "Зарегистрироваться"
-      welcome: "Добро пожаловать %{email} "
+      welcome: "Добро пожаловать, %{email} "
+      log_in: "Войти"
       admin_panel: "Панель Администратора"
 
   tests_mailer:
