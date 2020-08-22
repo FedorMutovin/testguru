@@ -18,7 +18,9 @@ en:
     header:
       logout: "Logout"
       sign_up: "Sign Up"
-      welcome: "Welcome %{email} "
+      welcome: "Welcome, %{email} "
+      log_in: "Log In"
+      admin_panel: "Admin Panel"
     errors:
       header:
         one: "%{count} error detected"
@@ -58,7 +60,8 @@ en:
     admin_header:
       logout: "Logout"
       sign_up: "Sign Up"
-      welcome: "Welcome %{email} "
+      welcome: "Welcome, %{email} "
+      log_in: "Log In"
       admin_panel: "Admin Panel"
 
   tests_mailer:
