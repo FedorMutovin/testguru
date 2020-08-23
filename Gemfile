@@ -38,10 +38,14 @@ gem 'rails-i18n', '~> 5.0.0'
 gem 'slim_lint', '~> 0.20.1'
 gem 'slim-rails', '~> 3.1', '>= 3.1.1'
 
-gem 'jquery-rails'
 gem 'bootstrap', '~> 4.0.0.beta '
+gem 'jquery-rails'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
+
+gem 'faraday'
+
+gem "octokit", "~> 4.0"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
