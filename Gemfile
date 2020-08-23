@@ -39,7 +39,7 @@ gem 'slim_lint', '~> 0.20.1'
 gem 'slim-rails', '~> 3.1', '>= 3.1.1'
 
 gem 'jquery-rails'
-gem 'bootstrap', '~> 4.0.0.beta '
+gem 'bootstrap', '~> 4.3.1'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
