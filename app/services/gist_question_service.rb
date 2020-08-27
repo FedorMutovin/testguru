@@ -1,8 +1,11 @@
 class GistQuestionService
+
+  attr_accessor :client
+
   def initialize(question, client: nil)
     @question = question
     @test = question.test
-    @client = client || GitHubClient.new
+    @client = client || Octokit::Client.new(access_token: ENV['ACCESS_TOKEN'])
   end
 
   def call
@@ -13,7 +16,7 @@ class GistQuestionService
 
   def gist_params
     {
-      "description": "Вопрос #{@question.body}",
+      "description": I18n.t('question', question: @question.body),
       "public": true,
       "files": {
         'test-guru-question.txt' => {

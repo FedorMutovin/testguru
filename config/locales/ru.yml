@@ -43,7 +43,7 @@ ru:
     result:
       header: "Тест %{title} успешно завершен"
     gist:
-      success: "Gist успешно сохранен"
+      success: "Gist успешно сохранен, ссылка %{gist_link} "
       failure: "Во время сохранения gist произошла ошибка"
 
   admin:
@@ -67,7 +67,14 @@ ru:
       welcome: "Добро пожаловать, %{email} "
       log_in: "Войти"
       admin_panel: "Панель Администратора"
+      gists: "Gists"
+    gists:
+      question: 'Вопрос'
+      gist_link: 'Гист URL'
+      user: 'Пользователь'
 
   tests_mailer:
     completed_test:
       subject: "Вы только что завершили тест на ТестГуру!"
+
+  question: "Вопрос %{question}"
