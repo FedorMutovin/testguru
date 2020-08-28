@@ -13,15 +13,15 @@ class TestPassagesController < ApplicationController
     request_result = request.call
     response = request.client.last_response
     gist_link = request_result.html_url
-    current_user.gists.create(question: @test_passage.current_question, gist_url: gist_link)
 
-    flash_options = if response.status.eql?(201)
-                      { notice: t('.success', gist_link: gist_link) }
-                    else
-                      { alert: t('.failure') }
-                    end
+    redirect_to @test_passage
 
-    redirect_to @test_passage, flash_options
+    if gist_link.present? && response.status.eql?(201)
+      current_user.gists.create(question: @test_passage.current_question, gist_url: gist_link)
+      flash[:notice] = t('.success', gist_link: view_context.link_to('Gist', gist_link))
+    else
+      flash[:alert] = t('.failure')
+    end
   end
 
   def update
