@@ -38,10 +38,15 @@ gem 'rails-i18n', '~> 5.0.0'
 gem 'slim_lint', '~> 0.20.1'
 gem 'slim-rails', '~> 3.1', '>= 3.1.1'
 
+gem 'bootstrap', '~> 4.0.0.beta '
 gem 'jquery-rails'
-gem 'bootstrap', '~> 4.3.1'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
+
+gem 'faraday'
+
+gem 'octokit', '~> 4.0'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -52,6 +57,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+
+  gem 'dotenv-rails'
 end
 
 group :development do
