@@ -39,6 +39,7 @@ gem 'slim_lint', '~> 0.20.1'
 gem 'slim-rails', '~> 3.1', '>= 3.1.1'
 
 gem 'bootstrap', '~> 4.0.0.beta '
+gem 'octicons_helper'
 gem 'jquery-rails'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
