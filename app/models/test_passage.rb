@@ -27,6 +27,10 @@ class TestPassage < ApplicationRecord
     test.questions.order(:id).index(current_question) + 1
   end
 
+  def progress
+    (current_question_index.to_f / test.questions.count * 100).round
+  end
+
   private
 
   def before_validation_set_first_question
