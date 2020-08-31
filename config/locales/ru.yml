@@ -58,9 +58,14 @@ ru:
         question_count: "Количество вопросов"
         actions: "Действия"
         add_test: "Добавить тест"
+      form_inline:
+        submit: "Ок"
       test:
         edit: "Изменить"
         delete: "Удалить"
+        show: "Показать"
+      show:
+        edit: "Редактировать"
     admin_header:
       logout: "Выйти"
       sign_up: "Зарегистрироваться"
