@@ -1,0 +1,11 @@
+<%= t('.feedback_form') %>
+<%= form_with model: [@feedback], local: true do |form| %>
+  <%= render 'shared/errors', resource: @feedback %>
+  <p>
+    <%= form.label :text %>
+    <%= form.text_area :text, id: :text, class: "form-control"%>
+  </p>
+
+  <%= form.submit %>
+  <%= link_to  "К тестам", tests_path %>
+<% end %>
