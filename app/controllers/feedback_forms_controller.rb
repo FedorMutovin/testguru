@@ -4,8 +4,8 @@ class FeedbackFormsController < ApplicationController
   end
 
   def create
-    @feedback = current_user.feedback_forms.new(feedback_params)
-    if @feedback.save
+    @feedback = FeedbackForm.new(feedback_params)
+    if @feedback.valid?
       FeedbackFormsMailer.send_to_admin(@feedback).deliver_now
       redirect_to tests_path, notice: t('.success')
     else
@@ -16,6 +16,6 @@ class FeedbackFormsController < ApplicationController
   private
 
   def feedback_params
-    params.require(:feedback_form).permit(:text)
+    params.require(:feedback_form).permit(:text, :email)
   end
 end

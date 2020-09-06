@@ -1,5 +1,7 @@
-class FeedbackForm < ApplicationRecord
-  belongs_to :user
+class FeedbackForm
+  include ActiveModel::Model
 
-  validates :text, presence: true
+  attr_accessor :email, :text
+
+  validates :email, :text, presence: true
 end

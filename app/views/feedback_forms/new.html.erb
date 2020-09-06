@@ -1,9 +1,13 @@
-<%= t('.feedback_form') %>
-<%= form_with model: [@feedback], local: true do |form| %>
+<h2><%= t('.feedback_form') %></h2>
+<%= form_for @feedback, local: true do |form| %>
   <%= render 'shared/errors', resource: @feedback %>
   <p>
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :email, class: "form-control" %>
+  </p>
+  <p>
     <%= form.label :text %>
-    <%= form.text_area :text, id: :text, class: "form-control"%>
+    <%= form.text_area :text, id: :text, class: "form-control" %>
   </p>
 
   <%= form.submit %>
