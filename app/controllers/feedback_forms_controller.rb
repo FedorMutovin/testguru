@@ -7,7 +7,11 @@ class FeedbackFormsController < ApplicationController
     @feedback = FeedbackForm.new(feedback_params)
     if @feedback.valid?
       FeedbackFormsMailer.send_to_admin(@feedback).deliver_now
-      redirect_to tests_path, notice: t('.success')
+      if current_user.present?
+        redirect_to tests_path, notice: t('.success')
+      else
+        redirect_to user_session_path, notice: t('.success')
+      end
     else
       render :new
     end
