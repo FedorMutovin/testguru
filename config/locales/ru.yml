@@ -21,6 +21,7 @@ ru:
       sign_up: "Зарегистрироваться"
       welcome: "Добро пожаловать, %{email} "
       admin_panel: "Панель Администратора"
+      feedback: "Оставь обратную связь"
     errors:
       header:
         few: "Обнаружено %{count} ошибки"
@@ -38,6 +39,12 @@ ru:
       actions: "Действия"
     test:
       start: "Начать"
+
+  feedback_forms:
+    new:
+      feedback_form: 'Форма обратной связи'
+    create:
+      success: "Ваш отзыв направлен администратору"
 
   test_passages:
     result:

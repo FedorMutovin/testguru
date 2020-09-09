@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :feedback_forms, only: %i[new create]
+
   namespace :admin do
     resources :tests do
       patch :update_inline, on: :member

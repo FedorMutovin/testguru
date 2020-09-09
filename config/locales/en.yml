@@ -21,6 +21,7 @@ en:
       welcome: "Welcome, %{email} "
       log_in: "Log In"
       admin_panel: "Admin Panel"
+      feedback: "Give a Feedback"
     errors:
       header:
         one: "%{count} error detected"
@@ -37,6 +38,12 @@ en:
       actions: "Actions"
     test:
       start: "Start"
+
+  feedback_forms:
+    new:
+      feedback_form: 'Feedback Form'
+    create:
+      success: "Feedback was successfully send to Admin"
 
   test_passages:
     result:
