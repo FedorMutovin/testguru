@@ -4,6 +4,7 @@ class TestPassage < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_first_question, on: %i[create update]
+  before_validation :before_validation_set_successful, on: :update
 
   def accept!(answers_ids)
     self.correct_questions += 1 if correct_answer?(answers_ids)
@@ -37,12 +38,20 @@ class TestPassage < ApplicationRecord
     self.current_question = next_question
   end
 
+  def before_validation_set_successful
+    self.successful = true if successful?
+  end
+
   def correct_answer?(answers_ids)
     correct_answers.ids.sort == answers_ids.map(&:to_i).sort
   end
 
   def correct_answers
     current_question.answers.correct
+  end
+
+  def before_create_set_count
+    self.count += 1
   end
 
   def next_question

@@ -5,7 +5,6 @@ class Test < ApplicationRecord
   has_many :test_passages, dependent: :destroy
   has_many :users, through: :test_passages
 
-
   validates :title, presence: true, uniqueness: { scope: :level }
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
 
@@ -16,4 +15,8 @@ class Test < ApplicationRecord
                             joins(:category).where(categories: { title: category_title })
                                             .order(title: :desc).pluck(:title)
                           }
+  scope :ruby_basics, -> { where title: 'Основы Руби' }
+  scope :master_ruby, -> { where title: 'Мастер Руби' }
+  scope :rails_controllers, -> { where title: 'Rails-контроллеры' }
+  scope :rails_models, -> { where title: 'Rails-модели' }
 end
