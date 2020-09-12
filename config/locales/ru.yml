@@ -22,6 +22,7 @@ ru:
       welcome: "Добро пожаловать, %{email} "
       admin_panel: "Панель Администратора"
       feedback: "Оставь обратную связь"
+      badge: "Посмотреть заработанные бейджи"
     errors:
       header:
         few: "Обнаружено %{count} ошибки"
@@ -39,6 +40,14 @@ ru:
       actions: "Действия"
     test:
       start: "Начать"
+
+  badges:
+    index:
+      header: "Ваши бейджи"
+      name: "Название"
+      file: "Изображение"
+      badges: "Все бейджи"
+      reason: "Причина"
 
   feedback_forms:
     new:
@@ -79,11 +88,25 @@ ru:
       welcome: "Добро пожаловать, %{email} "
       log_in: "Войти"
       admin_panel: "Панель Администратора"
+      badge: "Редактировать Бейджи"
       gists: "Gists"
     gists:
       question: 'Вопрос'
       gist_link: 'Гист URL'
       user: 'Пользователь'
+    badges:
+      index:
+        badges: "Все Бейджи"
+        name: "Название"
+        file: "Изображение"
+        reason: "Причина"
+        actions: "Действия"
+        add_badge: "Создать Бейдж"
+      badge:
+        edit: "Редактировать"
+        delete: "Удалить"
+      create:
+        success: "Бэйдж Создан"
 
   tests_mailer:
     completed_test:

@@ -15,8 +15,8 @@ class Test < ApplicationRecord
                             joins(:category).where(categories: { title: category_title })
                                             .order(title: :desc).pluck(:title)
                           }
-  scope :ruby, -> { where(category: Category.find_by(title: 'Ruby')) }
-  scope :rails, -> { where(category: Category.find_by(title: 'Ruby on Rails')) }
-  scope :titles, -> { pluck :title }
-  scope :successful, -> { where(successful: true) }
+  scope :ruby_basics, -> { where title: 'Основы Руби' }
+  scope :master_ruby, -> { where title: 'Мастер Руби' }
+  scope :rails_controllers, -> { where title: 'Rails-контроллеры' }
+  scope :rails_models, -> { where title: 'Rails-модели' }
 end

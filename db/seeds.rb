@@ -13,13 +13,13 @@ users = User.create([{ first_name: 'Admin', last_name: 'Admin', type: 'Admin',
 
 categories = Category.create([{ title: 'Ruby' }, { title: 'Ruby on Rails' }])
 tests = Test.create([{ title: 'Основы Руби', author: users.first,
-                       category: categories.first, successful: false},
+                       category: categories.first },
                      { title: 'Мастер Руби', author: users.first,
-                       category: categories.first, successful: false },
+                       category: categories.first },
                      { title: 'Rails-модели', level: 6, author: users.first,
-                       category: categories.last, successful: false },
+                       category: categories.last },
                      { title: 'Rails-контроллеры', level: 6, author: users.first,
-                       category: categories.last, successful: false }])
+                       category: categories.last }])
 questions = Question.create([{ body: 'Как вычисляется квадратный корень?',
                                test: tests[0] },
                              { body: 'Какая команда генерирует модель?',
@@ -64,10 +64,14 @@ Answer.create([{ body: 'Math.sqrt', correct: true, question: questions[0] },
                { body: '{id:}', correct: false, question: questions[8] },
                { body: 'парамс', correct: false, question: questions[8] }])
 Badge.create([{ name: 'Ruby Master',
-                file: 'https://vignette.wikia.nocookie.net/rustarwars/images/c/c3/Yoda_TPM_RotS.png/revision/latest?cb=20180125074723' },
+                file: 'https://vignette.wikia.nocookie.net/rustarwars/images/c/c3/Yoda_TPM_RotS.png/revision/latest?cb=20180125074723',
+                reason: 'Выдается после прохождения всех тестов в категории Ruby' },
               { name: 'Rails Master',
-                file: 'https://p7.hiclipart.com/preview/582/97/199/chewbacca-han-solo-star-wars-sequel-trilogy-wookiee-chewbacca-thumbnail.jpg' },
-              { name: 'First Time',
-                file: 'https://www.meme-arsenal.com/memes/dc4131594a8f353268afb152599eea71.jpg' },
+                file: 'https://p7.hiclipart.com/preview/582/97/199/chewbacca-han-solo-star-wars-sequel-trilogy-wookiee-chewbacca-thumbnail.jpg',
+                reason: 'Выдается после прохождения всех тестов в категории Rails' },
+              { name: 'On The First Try',
+                file: 'https://www.meme-arsenal.com/memes/dc4131594a8f353268afb152599eea71.jpg',
+                reason: 'Выдается после прохождения любого из тестов с первой попытки' },
               { name: 'Test Guru Master',
-                file: 'https://c7.hotpng.com/preview/162/512/983/5bbc4f05bdba3.jpg' }])
+                file: 'https://c7.hotpng.com/preview/162/512/983/5bbc4f05bdba3.jpg',
+                reason: 'Выдается после прохождения всех тестов' }])
