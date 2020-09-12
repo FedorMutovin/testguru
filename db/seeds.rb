@@ -4,13 +4,6 @@ Question.destroy_all
 Answer.destroy_all
 TestPassage.destroy_all
 Badge.destroy_all
-User.destroy_all
-
-users = User.create([{ first_name: 'Admin', last_name: 'Admin', type: 'Admin',
-                       email: 'admin@test.guru', password: 123_456 },
-                     { first_name: 'User', last_name: 'User',
-                       email: 'user@test.guru', password: 123_456 }])
-
 categories = Category.create([{ title: 'Ruby' }, { title: 'Ruby on Rails' }])
 tests = Test.create([{ title: 'Основы Руби', author: users.first,
                        category: categories.first },
