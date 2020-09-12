@@ -5,13 +5,13 @@ Answer.destroy_all
 TestPassage.destroy_all
 Badge.destroy_all
 categories = Category.create([{ title: 'Ruby' }, { title: 'Ruby on Rails' }])
-tests = Test.create([{ title: 'Основы Руби', author: users.first,
+tests = Test.create([{ title: 'Основы Руби', author: User.find_by(email: 'admin@test.guru'),
                        category: categories.first },
-                     { title: 'Мастер Руби', author: users.first,
+                     { title: 'Мастер Руби', author: User.find_by(email: 'admin@test.guru'),
                        category: categories.first },
-                     { title: 'Rails-модели', level: 6, author: users.first,
+                     { title: 'Rails-модели', level: 6, author: User.find_by(email: 'admin@test.guru'),
                        category: categories.last },
-                     { title: 'Rails-контроллеры', level: 6, author: users.first,
+                     { title: 'Rails-контроллеры', level: 6, author: User.find_by(email: 'admin@test.guru'),
                        category: categories.last }])
 questions = Question.create([{ body: 'Как вычисляется квадратный корень?',
                                test: tests[0] },
