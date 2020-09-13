@@ -20,6 +20,14 @@ class TestPassage < ApplicationRecord
     (correct_questions / test.questions.count.to_f) * 100
   end
 
+  def test_timer
+    created_at + test.time * 60
+  end
+
+  def end_of_test_time
+    test_timer - Time.current
+  end
+
   def successful?
     success_rate >= 85
   end
