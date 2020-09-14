@@ -9,7 +9,7 @@ document.addEventListener('turbolinks:load', function() {
         if (time > 0) {
             setInterval(function() {
                 if (!time) {
-                    window.location.replace(window.location.href + '/result');
+                    $("form").submit();
                 } else {
                     minutes.textContent = Math.floor(time / 60);
                     seconds.textContent = time % 60;
