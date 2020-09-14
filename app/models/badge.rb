@@ -4,19 +4,15 @@ class Badge < ApplicationRecord
 
   validates :name, :file, presence: true
 
-  def self.first_time
-    find_by name: 'On The First Try'
+  def self.first_try
+    find_by name: 'first_try'
   end
 
-  def self.ruby_master
-    find_by name: 'Ruby Master'
+  def self.backend
+    find_by name: 'backend'
   end
 
-  def self.rails_master
-    find_by name: 'Rails Master'
-  end
-
-  def self.test_guru_master
-    find_by name: 'Test Guru Master'
+  def self.level
+    find_by name: 'level'
   end
 end

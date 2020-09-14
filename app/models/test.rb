@@ -15,8 +15,6 @@ class Test < ApplicationRecord
                             joins(:category).where(categories: { title: category_title })
                                             .order(title: :desc).pluck(:title)
                           }
-  scope :ruby_basics, -> { where title: 'Основы Руби' }
-  scope :master_ruby, -> { where title: 'Мастер Руби' }
-  scope :rails_controllers, -> { where title: 'Rails-контроллеры' }
-  scope :rails_models, -> { where title: 'Rails-модели' }
+  scope :level_completed, ->(level) { where level: level }
+  scope :backend, -> { where category: Category.backend }
 end

@@ -3,11 +3,13 @@ class TestPassage < ApplicationRecord
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
+  scope :successful_completed, -> { where(successful: true) }
+
   before_validation :before_validation_set_first_question, on: %i[create update]
-  before_validation :before_validation_set_successful, on: :update
 
   def accept!(answers_ids)
     self.correct_questions += 1 if correct_answer?(answers_ids)
+    self.successful = true if successful?
 
     save!
   end
@@ -36,10 +38,6 @@ class TestPassage < ApplicationRecord
 
   def before_validation_set_first_question
     self.current_question = next_question
-  end
-
-  def before_validation_set_successful
-    self.successful = true if successful?
   end
 
   def correct_answer?(answers_ids)

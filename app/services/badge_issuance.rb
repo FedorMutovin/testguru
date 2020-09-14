@@ -1,5 +1,5 @@
 class BadgeIssuance
-  GIVE_BADGES = %i[give_first_time_badge give_ruby_master_badge give_rails_master_badge give_test_guru_master_badge].freeze
+  GIVE_BADGES = %i[give_first_try_badge give_backend_badge ].freeze
   def initialize(test_passage)
     @test_passage = test_passage
     @user = test_passage.user
@@ -9,39 +9,33 @@ class BadgeIssuance
     GIVE_BADGES.map { |give_badge| send give_badge }.compact
   end
 
-  def give_first_time_badge
-    Badge.first_time if @user.tests.where(title: @test_passage.test.title).count.eql?(1) && @test_passage.successful
+  def give_first_try_badge
+    Badge.first_try if @user.tests.where(title: @test_passage.test.title).count.eql?(1) && @test_passage.successful
   end
 
-  def give_ruby_master_badge
-    Badge.ruby_master if ruby_completed?
+  def give_backend_badge
+    Badge.backend if backend_tests_completed?
   end
 
-  def give_rails_master_badge
-    Badge.rails_master if rails_completed?
+  def give_level_badge
+    Badge.level if level_tests_completed?
   end
 
-  def give_test_guru_master_badge
-    Badge.test_guru_master if rails_completed? && ruby_completed?
-  end
-
-  def rails_completed?
-    rails_models_tests = @user.tests.rails_models.map do |test|
-      test.test_passages.where(successful: false)[0]
+  def backend_tests_completed?
+    tests = @user.tests
+    Category.backend.each do |category|
+      return false unless tests.where(category: category).include?(tests.where(category: category)
+                               .where('test_passages.successful_completed'))
     end
-    rails_controllers_tests = @user.tests.rails_controllers.map do |test|
-      test.test_passages.where(successful: false)[0]
-    end
-    rails_models_tests.present? && rails_controllers_tests.present?
+    true
   end
 
-  def ruby_completed?
-    ruby_basics_tests = @user.tests.ruby_basics.map do |test|
-      test.test_passages.where(successful: false)[0]
+  def level_tests_completed?
+    tests = @user.tests
+    tests.backend.each do |test|
+      return false unless test.where(level: test.level).include?(tests.where(level: test.level)
+                                                                      .where('test_passages.successful_completed'))
     end
-    master_ruby_tests = @user.tests.master_ruby.map do |test|
-      test.test_passages.where(successful: false)[0]
-    end
-    ruby_basics_tests.present? && master_ruby_tests.present?
+    true
   end
 end
