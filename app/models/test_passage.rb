@@ -7,6 +7,7 @@ class TestPassage < ApplicationRecord
 
   def accept!(answers_ids)
     self.correct_questions += 1 if correct_answer?(answers_ids)
+    self.successful = true if successful?
 
     save!
   end
@@ -19,12 +20,16 @@ class TestPassage < ApplicationRecord
     (correct_questions / test.questions.count.to_f) * 100
   end
 
-  def test_timer
+  def test_time
     created_at + test.time * 60
   end
 
   def end_of_test_time
-    test_timer - Time.current
+    test_time - Time.current
+  end
+
+  def end_time?
+    Time.current - created_at >= test.time * 60
   end
 
   def successful?
