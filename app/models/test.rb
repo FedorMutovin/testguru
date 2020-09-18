@@ -16,5 +16,4 @@ class Test < ApplicationRecord
                                             .order(title: :desc).pluck(:title)
                           }
   scope :level_completed, ->(level) { where level: level }
-  scope :backend, -> { where category: Category.backend }
 end
