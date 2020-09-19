@@ -8,6 +8,7 @@ class TestPassage < ApplicationRecord
   def accept!(answers_ids)
     self.correct_questions += 1 if correct_answer?(answers_ids)
     self.successful = true if successful?
+    self.current_question = nil if end_time?
 
     save!
   end

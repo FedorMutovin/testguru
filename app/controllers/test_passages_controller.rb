@@ -29,7 +29,7 @@ class TestPassagesController < ApplicationController
       redirect_to result_test_passage_path(@test_passage)
     else
       @test_passage.accept!(params[:answers_ids])
-      if @test_passage.completed? || @test_passage.end_time?
+      if @test_passage.completed?
         TestsMailer.completed_test(@test_passage).deliver_now
         redirect_to result_test_passage_path(@test_passage)
       else
