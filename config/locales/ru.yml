@@ -107,6 +107,8 @@ ru:
         delete: "Удалить"
       create:
         success: "Бэйдж Создан"
+      form:
+        badges: "К бейджам"
 
   tests_mailer:
     completed_test:

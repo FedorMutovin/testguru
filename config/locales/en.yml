@@ -101,6 +101,8 @@ en:
         reason: "Reason"
         actions: "Actions"
         add_badge: "Add Badge"
+      form:
+        badges: "To Badges Page"
       badge:
         edit: "Edit"
         delete: "Delete"

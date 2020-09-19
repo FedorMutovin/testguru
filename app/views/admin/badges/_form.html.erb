@@ -13,7 +13,7 @@
 
   <p>
     <%= form.label :rule_type %>
-    <%= form.text_field :rule_type, id: :badge_rule_type %>
+    <%= form.collection_select :rule_type, BadgeIssuance::RULES, :to_s, :to_s, prompt: true %>
   </p>
 
   <p>
@@ -27,5 +27,5 @@
   </p>
 
   <%= form.submit %>
-  <%= link_to "К бейджам", admin_badges_path %>
+  <%= link_to t('.badges'), admin_badges_path %>
 <% end %>
