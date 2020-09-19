@@ -1,4 +1,8 @@
 en:
+  rules:
+    category: 'Category'
+    first_try: 'First_try'
+    level: 'Level'
   hello: "Hello world"
 
   helpers:

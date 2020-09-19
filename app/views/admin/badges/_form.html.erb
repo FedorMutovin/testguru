@@ -13,7 +13,7 @@
 
   <p>
     <%= form.label :rule_type %>
-    <%= form.collection_select :rule_type, BadgeIssuance::RULES, :to_s, :to_s, prompt: true %>
+    <%= form.collection_select :rule_type, rules_type_values, :last, :first, prompt: true %>
   </p>
 
   <p>

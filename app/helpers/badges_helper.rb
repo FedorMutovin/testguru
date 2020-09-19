@@ -4,4 +4,8 @@ module BadgesHelper
 
     "Редактирование бейджа: #{badge.name}"
   end
+
+  def rules_type_values
+    I18n.t(:rules).map { |key, value| [value, key] }
+  end
 end

@@ -1,6 +1,9 @@
 ru:
+  rules:
+    category: 'Категория'
+    first_try: 'C первой попытки'
+    level: 'Уровень'
   hello: "Привет мир"
-
   helpers:
     select:
       prompt: 'Выберите категорию'
