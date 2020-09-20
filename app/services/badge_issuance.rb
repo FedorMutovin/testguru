@@ -18,8 +18,8 @@ class BadgeIssuance
     return false if @user.badges.include?(badge)
     return false unless @test_passage.test.category.title.eql?(badge.rule_value)
 
-    category_tests_ids = Test.where(category: Category.find_by(title: badge.rule_value)).select(:id)
-    user_tests_ids = @user.tests.where(category: Category.find_by(title: badge.rule_value))
+    category_tests_ids = Test.joins(:category).where(categories: { title: badge.rule_value }).select(:id)
+    user_tests_ids = @user.tests.joins(:category).where(categories: { title: badge.rule_value })
                           .where('test_passages.successful').select(:id)
 
     (category_tests_ids - user_tests_ids).empty?

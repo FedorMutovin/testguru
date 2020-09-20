@@ -15,5 +15,4 @@ class Test < ApplicationRecord
                             joins(:category).where(categories: { title: category_title })
                                             .order(title: :desc).pluck(:title)
                           }
-  scope :level_completed, ->(level) { where level: level }
 end
