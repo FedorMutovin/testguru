@@ -6,6 +6,6 @@ module BadgesHelper
   end
 
   def rules_type_values
-    I18n.t(:rules).map { |key, value| [value, key] }
+    BadgeIssuance::RULES.map { |rule| I18n.t(:rules)[rule.to_sym] }
   end
 end

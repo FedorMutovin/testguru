@@ -13,7 +13,7 @@
 
   <p>
     <%= form.label :rule_type %>
-    <%= form.collection_select :rule_type, rules_type_values, :last, :first, prompt: true %>
+    <%= form.collection_select :rule_type, rules_type_values, :to_s, :to_s, prompt: true %>
   </p>
 
   <p>
