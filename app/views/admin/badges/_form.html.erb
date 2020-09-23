@@ -8,7 +8,17 @@
 
   <p>
     <%= form.label :file %>
-    <%= form.text_field :file, id: :badge_file%>
+    <%= form.text_field :file, id: :badge_file %>
+  </p>
+
+  <p>
+    <%= form.label :rule_type %>
+    <%= form.collection_select :rule_type, rules_type_values, :to_s, :to_s, prompt: true %>
+  </p>
+
+  <p>
+    <%= form.label :rule_value %>
+    <%= form.text_field :rule_value, id: :badge_rule_value %>
   </p>
 
   <p>
@@ -17,5 +27,5 @@
   </p>
 
   <%= form.submit %>
-  <%= link_to  "К бейджам", admin_badges_path %>
+  <%= link_to t('.badges'), admin_badges_path %>
 <% end %>

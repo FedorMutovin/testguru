@@ -1,4 +1,8 @@
 en:
+  rules:
+    category: 'Category'
+    first_try: 'First_try'
+    level: 'Level'
   hello: "Hello world"
 
   helpers:
@@ -13,7 +17,6 @@ en:
         title: "Title"
         level: "Level"
         category_id: "Category"
-        time: "Test Time"
 
   shared:
     header:
@@ -38,7 +41,6 @@ en:
       author: "Author"
       question_count: "Question Count"
       actions: "Actions"
-      time: "Test Time"
     test:
       start: "Start"
 
@@ -75,7 +77,6 @@ en:
         question_count: "Question Count"
         actions: "Actions"
         add_test: "Add test"
-        time: "Test Time"
       form_inline:
         submit: "Ok"
       test:
@@ -104,6 +105,8 @@ en:
         reason: "Reason"
         actions: "Actions"
         add_badge: "Add Badge"
+      form:
+        badges: "To Badges Page"
       badge:
         edit: "Edit"
         delete: "Delete"

@@ -4,10 +4,10 @@ class TestPassage < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_first_question, on: %i[create update]
-  before_validation :before_validation_set_successful, on: :update
 
   def accept!(answers_ids)
     self.correct_questions += 1 if correct_answer?(answers_ids)
+    self.successful = true if successful?
 
     save!
   end
@@ -18,14 +18,6 @@ class TestPassage < ApplicationRecord
 
   def success_rate
     (correct_questions / test.questions.count.to_f) * 100
-  end
-
-  def test_timer
-    created_at + test.time * 60
-  end
-
-  def end_of_test_time
-    test_timer - Time.current
   end
 
   def successful?
@@ -44,10 +36,6 @@ class TestPassage < ApplicationRecord
 
   def before_validation_set_first_question
     self.current_question = next_question
-  end
-
-  def before_validation_set_successful
-    self.successful = true if successful?
   end
 
   def correct_answer?(answers_ids)

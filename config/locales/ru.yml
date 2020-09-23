@@ -1,6 +1,9 @@
 ru:
+  rules:
+    category: 'Категория'
+    first_try: 'C первой попытки'
+    level: 'Уровень'
   hello: "Привет мир"
-
   helpers:
     select:
       prompt: 'Выберите категорию'
@@ -13,7 +16,6 @@ ru:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
-        time: "Время на тест(мин.)"
 
   shared:
     header:
@@ -39,7 +41,6 @@ ru:
       author: "Автор"
       question_count: "Количество вопросов"
       actions: "Действия"
-      time: "Время на тест(мин.)"
     test:
       start: "Начать"
 
@@ -76,18 +77,12 @@ ru:
         question_count: "Количество вопросов"
         actions: "Действия"
         add_test: "Добавить тест"
-        time: "Время на тест(мин.)"
       form_inline:
         submit: "Ок"
       test:
         edit: "Изменить"
         delete: "Удалить"
         show: "Показать"
-        minutes:
-          few: "%{minutes} Минуты"
-          many: "%{minutes} Минут"
-          one: "%{minutes} Минута"
-          other: "%{minutes} Минут"
       show:
         edit: "Редактировать"
     admin_header:
@@ -115,6 +110,8 @@ ru:
         delete: "Удалить"
       create:
         success: "Бэйдж Создан"
+      form:
+        badges: "К бейджам"
 
   tests_mailer:
     completed_test:

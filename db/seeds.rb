@@ -4,15 +4,17 @@ Question.destroy_all
 Answer.destroy_all
 TestPassage.destroy_all
 Badge.destroy_all
-categories = Category.create([{ title: 'Ruby' }, { title: 'Ruby on Rails' }])
+categories = Category.create([{ title: 'Ruby' }, { title: 'Ruby on Rails' }, { title: 'Javascript' }])
 tests = Test.create([{ title: 'Основы Руби', author: User.find_by(email: 'admin@test.guru'),
-                       category: categories.first },
+                       category: categories[0] },
                      { title: 'Мастер Руби', author: User.find_by(email: 'admin@test.guru'),
-                       category: categories.first },
-                     { title: 'Rails-модели', level: 6, author: User.find_by(email: 'admin@test.guru'),
-                       category: categories.last },
-                     { title: 'Rails-контроллеры', level: 6, author: User.find_by(email: 'admin@test.guru'),
-                       category: categories.last }])
+                       category: categories[0] },
+                     { title: 'Rails-модели', level: 4, author: User.find_by(email: 'admin@test.guru'),
+                       category: categories[1] },
+                     { title: 'Rails-контроллеры', level: 4, author: User.find_by(email: 'admin@test.guru'),
+                       category: categories[1] },
+                     { title: 'Javascript', level: 2, author: User.find_by(email: 'admin@test.guru'),
+                       category: categories[2] }])
 questions = Question.create([{ body: 'Как вычисляется квадратный корень?',
                                test: tests[0] },
                              { body: 'Какая команда генерирует модель?',
@@ -29,7 +31,9 @@ questions = Question.create([{ body: 'Как вычисляется квадра
                                test: tests[3] },
                              { body: 'Укажите верный способ,
                                с помощью которого можно обратиться к параметру запроса?',
-                               test: tests[3] }])
+                               test: tests[3] },
+                             { body: 'Что означает выражение "let var = ..."',
+                               test: tests[4] }])
 Answer.create([{ body: 'Math.sqrt', correct: true, question: questions[0] },
                { body: 'Sqrt.math', correct: false, question: questions[0] },
                { body: 'bin/rails g migration', correct: false, question: questions[1] },
@@ -50,21 +54,23 @@ Answer.create([{ body: 'Math.sqrt', correct: true, question: questions[0] },
                { body: '#{&...}#', correct: false, question: questions[5] },
                { body: '--=', correct: false, question: questions[5] },
                { body: 'before_action', correct: true, question: questions[6] },
-               { body: 'before_satisfaction', correct: true, question: questions[6] },
+               { body: 'before_satisfaction', correct: false, question: questions[6] },
                { body: 'after_satisfaction', correct: false, question: questions[6] },
                { body: 'params[:id]', correct: true, question: questions[7] },
                { body: 'pararams[:id]', correct: false, question: questions[7] },
                { body: '{id:}', correct: false, question: questions[8] },
-               { body: 'парамс', correct: false, question: questions[8] }])
-Badge.create([{ name: 'Ruby Master',
+               { body: 'парамс', correct: false, question: questions[8] },
+               { body: 'Назначение переменной', correct: true, question: questions[9] },
+               { body: 'Нечто большее и глобальное', correct: false, question: questions[9] }])
+Badge.create([{ name: 'Ruby category',
                 file: 'https://vignette.wikia.nocookie.net/rustarwars/images/c/c3/Yoda_TPM_RotS.png/revision/latest?cb=20180125074723',
-                reason: 'Выдается после прохождения всех тестов в категории Ruby' },
-              { name: 'Rails Master',
-                file: 'https://p7.hiclipart.com/preview/582/97/199/chewbacca-han-solo-star-wars-sequel-trilogy-wookiee-chewbacca-thumbnail.jpg',
-                reason: 'Выдается после прохождения всех тестов в категории Rails' },
-              { name: 'On The First Try',
-                file: 'https://www.meme-arsenal.com/memes/dc4131594a8f353268afb152599eea71.jpg',
-                reason: 'Выдается после прохождения любого из тестов с первой попытки' },
-              { name: 'Test Guru Master',
+                reason: 'Выдается после прохождения всех тестов в категории Ruby',
+                rule_type: :category, rule_value: 'Ruby' },
+              { name: '4 level complete',
                 file: 'https://c7.hotpng.com/preview/162/512/983/5bbc4f05bdba3.jpg',
-                reason: 'Выдается после прохождения всех тестов' }])
+                reason: 'Выдается после прохождения всех тестов 4 ого уровня ',
+                rule_type: :level, rule_value: 4 },
+              { name: 'First try',
+                file: 'https://www.meme-arsenal.com/memes/dc4131594a8f353268afb15ы2599eea71.jpg',
+                reason: 'Выдается после прохождения теста с первой попытки',
+                rule_type: :first_try, rule_value: 1 }])

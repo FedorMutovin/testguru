@@ -7,7 +7,6 @@ class Test < ApplicationRecord
 
   validates :title, presence: true, uniqueness: { scope: :level }
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
-  validates :time, presence: true
 
   scope :easy, -> { where(level: 1) }
   scope :medium, -> { where(level: 2..4) }
@@ -16,8 +15,4 @@ class Test < ApplicationRecord
                             joins(:category).where(categories: { title: category_title })
                                             .order(title: :desc).pluck(:title)
                           }
-  scope :ruby_basics, -> { where title: 'Основы Руби' }
-  scope :master_ruby, -> { where title: 'Мастер Руби' }
-  scope :rails_controllers, -> { where title: 'Rails-контроллеры' }
-  scope :rails_models, -> { where title: 'Rails-модели' }
 end
