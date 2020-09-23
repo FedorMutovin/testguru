@@ -6,6 +6,7 @@
   <td class="aligh-middle"><%= test.level %></td>
   <td class="aligh-middle"><%= test.author&.email %></td>
   <td class="aligh-middle"><%= test.questions.count %></td>
+  <td class="aligh-middle"><%= test.time %></td>
   <td class="aligh-middle"><%= link_to  t(".show"), admin_test_path(test)%>
   <td class="aligh-middle">
     <%= link_to  t(".edit"), edit_admin_test_path(test),

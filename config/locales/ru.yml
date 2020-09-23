@@ -1,6 +1,9 @@
 ru:
+  rules:
+    category: 'Категория'
+    first_try: 'C первой попытки'
+    level: 'Уровень'
   hello: "Привет мир"
-
   helpers:
     select:
       prompt: 'Выберите категорию'
@@ -13,6 +16,7 @@ ru:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
+        time: "Время на тест(мин.)"
 
   shared:
     header:
@@ -22,6 +26,7 @@ ru:
       welcome: "Добро пожаловать, %{email} "
       admin_panel: "Панель Администратора"
       feedback: "Оставь обратную связь"
+      badge: "Посмотреть заработанные бейджи"
     errors:
       header:
         few: "Обнаружено %{count} ошибки"
@@ -37,8 +42,17 @@ ru:
       author: "Автор"
       question_count: "Количество вопросов"
       actions: "Действия"
+      time: "Время на тест(мин.)"
     test:
       start: "Начать"
+
+  badges:
+    index:
+      header: "Ваши бейджи"
+      name: "Название"
+      file: "Изображение"
+      badges: "Все бейджи"
+      reason: "Причина"
 
   feedback_forms:
     new:
@@ -65,12 +79,18 @@ ru:
         question_count: "Количество вопросов"
         actions: "Действия"
         add_test: "Добавить тест"
+        time: "Время на тест(мин.)"
       form_inline:
         submit: "Ок"
       test:
         edit: "Изменить"
         delete: "Удалить"
         show: "Показать"
+        minutes:
+          few: "%{minutes} Минуты"
+          many: "%{minutes} Минут"
+          one: "%{minutes} Минута"
+          other: "%{minutes} Минут"
       show:
         edit: "Редактировать"
     admin_header:
@@ -79,11 +99,27 @@ ru:
       welcome: "Добро пожаловать, %{email} "
       log_in: "Войти"
       admin_panel: "Панель Администратора"
+      badge: "Редактировать Бейджи"
       gists: "Gists"
     gists:
       question: 'Вопрос'
       gist_link: 'Гист URL'
       user: 'Пользователь'
+    badges:
+      index:
+        badges: "Все Бейджи"
+        name: "Название"
+        file: "Изображение"
+        reason: "Причина"
+        actions: "Действия"
+        add_badge: "Создать Бейдж"
+      badge:
+        edit: "Редактировать"
+        delete: "Удалить"
+      create:
+        success: "Бэйдж Создан"
+      form:
+        badges: "К бейджам"
 
   tests_mailer:
     completed_test:

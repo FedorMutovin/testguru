@@ -7,6 +7,8 @@ class TestPassage < ApplicationRecord
 
   def accept!(answers_ids)
     self.correct_questions += 1 if correct_answer?(answers_ids)
+    self.successful = true if successful?
+    self.current_question = nil if end_time?
 
     save!
   end
@@ -17,6 +19,18 @@ class TestPassage < ApplicationRecord
 
   def success_rate
     (correct_questions / test.questions.count.to_f) * 100
+  end
+
+  def test_time
+    created_at + test.time * 60
+  end
+
+  def end_of_test_time
+    test_time - Time.current
+  end
+
+  def end_time?
+    Time.current - created_at >= test.time * 60
   end
 
   def successful?
@@ -38,6 +52,8 @@ class TestPassage < ApplicationRecord
   end
 
   def correct_answer?(answers_ids)
+    return false if answers_ids.nil?
+
     correct_answers.ids.sort == answers_ids.map(&:to_i).sort
   end
 

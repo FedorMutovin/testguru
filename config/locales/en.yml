@@ -1,4 +1,8 @@
 en:
+  rules:
+    category: 'Category'
+    first_try: 'First_try'
+    level: 'Level'
   hello: "Hello world"
 
   helpers:
@@ -13,6 +17,7 @@ en:
         title: "Title"
         level: "Level"
         category_id: "Category"
+        time: "Test Time"
 
   shared:
     header:
@@ -22,6 +27,7 @@ en:
       log_in: "Log In"
       admin_panel: "Admin Panel"
       feedback: "Give a Feedback"
+      badge: "Show My Badges"
     errors:
       header:
         one: "%{count} error detected"
@@ -36,8 +42,17 @@ en:
       author: "Author"
       question_count: "Question Count"
       actions: "Actions"
+      time: "Test Time"
     test:
       start: "Start"
+
+  badges:
+    index:
+      header: "Your Badges"
+      name: "Name"
+      file: "Image"
+      badges: "All Badges"
+      reason: "Reason"
 
   feedback_forms:
     new:
@@ -64,6 +79,7 @@ en:
         question_count: "Question Count"
         actions: "Actions"
         add_test: "Add test"
+        time: "Test Time"
       form_inline:
         submit: "Ok"
       test:
@@ -78,11 +94,28 @@ en:
       welcome: "Welcome, %{email} "
       log_in: "Log In"
       admin_panel: "Admin Panel"
+      badge: "Edit Badge"
       gists: "Gists"
     gists:
       question: 'Question'
       gist_link: 'Gist URL'
       user: 'User'
+    badges:
+      index:
+        badges: "All Badges"
+        name: "Name"
+        file: "File"
+        reason: "Reason"
+        actions: "Actions"
+        add_badge: "Add Badge"
+      form:
+        badges: "To Badges Page"
+      badge:
+        edit: "Edit"
+        delete: "Delete"
+        show: "Show"
+      create:
+        success: "Badge Create Successful"
 
   tests_mailer:
     completed_test:
